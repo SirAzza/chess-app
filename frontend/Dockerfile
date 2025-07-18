@@ -25,8 +25,8 @@ FROM nginx:stable-alpine
 # Copiar el build de React a la carpeta que Nginx sirve
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Copiar configuración personalizada de nginx si tienes (opcional)
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Copiar configuración personalizada de nginx (default.conf) para resolver rutas SPA React
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Exponer el puerto 80
 EXPOSE 80

@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import GamesTable from './GamesTable';
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
 
 
 function GamesPage({setIsSingleGameShown, setCurrGameId}) {
@@ -18,7 +20,7 @@ function GamesPage({setIsSingleGameShown, setCurrGameId}) {
       }, []);
 
     const getGamesWithPlayerName = (playerName, viewBlackWinGames, viewWhiteWinGames, viewDrawGames) => {
-        axios.get("http://localhost:8080/v1/game/filtered", { params: { playerName, viewBlackWinGames, viewWhiteWinGames,  viewDrawGames} }).then((res) => {
+        axios.get("http://52.159.145.100:8080/v1/game/filtered", { params: { playerName, viewBlackWinGames, viewWhiteWinGames,  viewDrawGames} }).then((res) => {
           const gamesData = res.data;
           setGames(gamesData);
           console.log(gamesData);

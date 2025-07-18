@@ -17,7 +17,7 @@ RUN yarn install --frozen-lockfile
 COPY . .
 
 # Construir la app con variable para OpenSSL
-RUN npx cross-env NODE_OPTIONS=--openssl-legacy-provider yarn build
+RUN npx cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts build
 
 # Etapa 2: Servir con Nginx
 FROM nginx:stable-alpine

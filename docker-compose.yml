@@ -16,3 +16,11 @@ services:
       - "3000:80"
     depends_on:
       - backend
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: 52.159.145.100
+      PMA_USER: chess_admin
+      PMA_PASSWORD: ChessAdmin1234!

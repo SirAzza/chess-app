@@ -85,7 +85,7 @@ function GeneralPageLayout() {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    axios.post("http://localhost:8080/v1/player/login", 
+    axios.post("/v1/player/login", 
                {"username": inputUsername, "password":inputPassword}
       ).then((res) => {
         setCurrUsername(inputUsername);

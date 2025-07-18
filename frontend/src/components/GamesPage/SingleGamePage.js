@@ -39,7 +39,7 @@ function SingleGamePage({setIsSingleGameShown, currGameId, currUsername}) {
     };
 
     const getMovesInGame = (gid) => {
-        axios.get("http://localhost:8080/v1/game/moves", { params: { gid } }).then((res) => {
+        axios.get("/v1/game/moves", { params: { gid } }).then((res) => {
         const movesData = res.data;
         setMovesInGame(movesData);
         console.log(movesData);
@@ -53,12 +53,12 @@ function SingleGamePage({setIsSingleGameShown, currGameId, currUsername}) {
     const addOrRemoveGameFromFavourites = (gid, username) => {
         if (isFavourited) {
             // remove from favourites
-            axios.delete("http://localhost:8080/v1/game/user", { params: { gid, username } });
+            axios.delete("/v1/game/user", { params: { gid, username } });
         } else {
             // add to favourites
             const favouritedGame = { username: username, gid: gid };
             console.log("favourited game = ", favouritedGame);
-            axios.post('http://localhost:8080/v1/game/user', favouritedGame);
+            axios.post('/v1/game/user', favouritedGame);
         }
         setFavourited(!isFavourited)
     }

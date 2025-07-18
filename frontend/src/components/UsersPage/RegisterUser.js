@@ -15,7 +15,7 @@ function RegisterUser() {
             alert("Your fields must not only contain whitespaces.");
             return;
         }
-        axios.post("http://localhost:8080/v1/player/register", 
+        axios.post("/v1/player/register", 
                    {"name": inputName, "username": inputUsername, "password":inputPassword}
           ).then((res) => {
             alert("Your account has been successfully created. Please login.")

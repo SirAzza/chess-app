@@ -18,7 +18,7 @@ function GamesPage({setIsSingleGameShown, setCurrGameId}) {
       }, []);
 
     const getGamesWithPlayerName = (playerName, viewBlackWinGames, viewWhiteWinGames, viewDrawGames) => {
-        axios.get("http://52.159.145.100:3306/v1/game/filtered", { params: { playerName, viewBlackWinGames, viewWhiteWinGames,  viewDrawGames} }).then((res) => {
+        axios.get("http://localhost:8080/v1/game/filtered", { params: { playerName, viewBlackWinGames, viewWhiteWinGames,  viewDrawGames} }).then((res) => {
           const gamesData = res.data;
           setGames(gamesData);
           console.log(gamesData);

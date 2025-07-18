@@ -11,7 +11,7 @@ function SingleEventPage({isSingleEventShown, setIsSingleGameShown, currEventId,
 
     const getGames = (eid) => {
         console.log(eid);
-        axios.get("http://52.159.145.100:8080/v1/events/games", { params: { eid } }).then((res) => {
+        axios.get("http://localhost:8080/v1/events/games", { params: { eid } }).then((res) => {
         const gamesData = res.data;
         setGames(gamesData);
         });

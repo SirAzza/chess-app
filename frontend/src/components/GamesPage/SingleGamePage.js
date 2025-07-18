@@ -22,14 +22,14 @@ function SingleGamePage({setIsSingleGameShown, currGameId, currUsername}) {
       }, []);
 
     const getGame = (gid, username) => {
-        axios.get("http://52.159.145.100:8080/v1/game/single", { params: { gid } }).then((res) => {
+        axios.get("http://localhost:8080/v1/game/single", { params: { gid } }).then((res) => {
         const gameData = res.data;
         setGame(gameData);
         console.log(gameData);
         });
 
         // check if game is favourited by current user
-        axios.get("http://52.159.145.100:8080/v1/game/user", { params: { username } }).then((res) => {
+        axios.get("http://localhost:8080/v1/game/user", { params: { username } }).then((res) => {
         const favouritedGames = res.data;
         for (let i = 0; i < favouritedGames.length; i++) {
             if (favouritedGames[i].gid == currGameId) {
@@ -39,7 +39,7 @@ function SingleGamePage({setIsSingleGameShown, currGameId, currUsername}) {
     };
 
     const getMovesInGame = (gid) => {
-        axios.get("http://52.159.145.100:8080/v1/game/moves", { params: { gid } }).then((res) => {
+        axios.get("http://localhost:8080/v1/game/moves", { params: { gid } }).then((res) => {
         const movesData = res.data;
         setMovesInGame(movesData);
         console.log(movesData);
@@ -53,12 +53,12 @@ function SingleGamePage({setIsSingleGameShown, currGameId, currUsername}) {
     const addOrRemoveGameFromFavourites = (gid, username) => {
         if (isFavourited) {
             // remove from favourites
-            axios.delete("http://52.159.145.100:8080/v1/game/user", { params: { gid, username } });
+            axios.delete("http://localhost:8080/v1/game/user", { params: { gid, username } });
         } else {
             // add to favourites
             const favouritedGame = { username: username, gid: gid };
             console.log("favourited game = ", favouritedGame);
-            axios.post('http://52.159.145.100:8080/v1/game/user', favouritedGame);
+            axios.post('http://localhost:8080/v1/game/user', favouritedGame);
         }
         setFavourited(!isFavourited)
     }

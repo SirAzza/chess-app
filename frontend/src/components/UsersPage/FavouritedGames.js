@@ -15,7 +15,7 @@ function FavouritedGames({currUsername, setIsSingleGameShown, setCurrGameId}) {
 
 
     const getUserFavouritedGames = (username) => {
-        axios.get("http://52.159.145.100:8080/v1/game/user", { params: { username} }).then((res) => {
+        axios.get("http://localhost:8080/v1/game/user", { params: { username} }).then((res) => {
           const gamesData = res.data;
           setFavouritedGames(gamesData);
           console.log(gamesData);
@@ -23,7 +23,7 @@ function FavouritedGames({currUsername, setIsSingleGameShown, setCurrGameId}) {
       };
 
     const getName = (username) => {
-      axios.get("http://52.159.145.100:8080/v1/player/user", { params: { username} }).then((res) => {
+      axios.get("http://localhost:8080/v1/player/user", { params: { username} }).then((res) => {
           const userData = res.data;
           setName(userData.split(' ')
           .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())

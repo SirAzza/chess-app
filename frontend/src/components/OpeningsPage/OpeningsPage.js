@@ -30,7 +30,7 @@ function OpeningsPage() {
             }
         }
         console.log("previousMovesString = '" + previousMovesString + "'");
-        axios.get("http://52.159.145.100:8080/v1/game/candidate_moves", { params: { previousMovesString } }).then((res) => {
+        axios.get("http://localhost:8080/v1/game/candidate_moves", { params: { previousMovesString } }).then((res) => {
             const candidateMoves = res.data;
             setCandidateMoves(candidateMoves);
             console.log(candidateMoves);

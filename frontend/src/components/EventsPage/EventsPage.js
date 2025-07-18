@@ -9,7 +9,7 @@ function EventsPage({setIsSingleEventShown, setIsSingleGameShown, setCurrEventId
 
     const getEvents = () => {
         setIsSingleGameShown(false)
-        axios.get("http://52.159.145.100:8080/v1/events/events").then((res) => {
+        axios.get("http://localhost:8080/v1/events/events").then((res) => {
             const eventsData = res.data;
             setEvents(eventsData);
         });

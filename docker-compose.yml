@@ -4,7 +4,10 @@ services:
       context: ./backend
     ports:
       - "8080:8080"
-    # No depende del frontend
+    environment:
+      DB_URL: jdbc:mysql://52.159.145.100:3306/chess
+      DB_USER: chess_admin
+      DB_PASS: ChessAdmin1234!
 
   frontend:
     build:
